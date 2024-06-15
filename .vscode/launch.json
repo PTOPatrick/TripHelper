@@ -1,0 +1,29 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": ".NET Core Launch (web)",
+            "type": "coreclr",
+            "launchBrowser": {
+            "enabled": false
+        },
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/src/TripHelper.Api/bin/Debug/net8.0/TripHelper.Api.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/TripHelper.Api",
+            "stopAtEntry": false,
+            "env": 
+            {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "DB_CONNECTION_STRING_KEY": "patrickDbConnectrionString"
+            },
+            "sourceFileMap": 
+            {
+                "/Views": "${workspaceFolder}/Views"
+            },
+            "hotReloadEnabled": false,
+            "dotnetRunMessages": true
+        }
+    ]
+}

@@ -1,0 +1,11 @@
+C:\Users\patri\source\repos\TripHelper\src\TripHelper.Contracts\bin\Debug\net8.0\TripHelper.Contracts.deps.json
+C:\Users\patri\source\repos\TripHelper\src\TripHelper.Contracts\bin\Debug\net8.0\TripHelper.Contracts.dll
+C:\Users\patri\source\repos\TripHelper\src\TripHelper.Contracts\bin\Debug\net8.0\TripHelper.Contracts.pdb
+C:\Users\patri\source\repos\TripHelper\src\TripHelper.Contracts\obj\Debug\net8.0\TripHelper.Contracts.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\patri\source\repos\TripHelper\src\TripHelper.Contracts\obj\Debug\net8.0\TripHelper.Contracts.AssemblyInfoInputs.cache
+C:\Users\patri\source\repos\TripHelper\src\TripHelper.Contracts\obj\Debug\net8.0\TripHelper.Contracts.AssemblyInfo.cs
+C:\Users\patri\source\repos\TripHelper\src\TripHelper.Contracts\obj\Debug\net8.0\TripHelper.Contracts.csproj.CoreCompileInputs.cache
+C:\Users\patri\source\repos\TripHelper\src\TripHelper.Contracts\obj\Debug\net8.0\TripHelper.Contracts.dll
+C:\Users\patri\source\repos\TripHelper\src\TripHelper.Contracts\obj\Debug\net8.0\refint\TripHelper.Contracts.dll
+C:\Users\patri\source\repos\TripHelper\src\TripHelper.Contracts\obj\Debug\net8.0\TripHelper.Contracts.pdb
+C:\Users\patri\source\repos\TripHelper\src\TripHelper.Contracts\obj\Debug\net8.0\ref\TripHelper.Contracts.dll

@@ -1,0 +1,12 @@
+C:\Users\patri\source\repos\TripHelper\src\TripHelper.Domain\bin\Debug\net8.0\TripHelper.Domain.deps.json
+C:\Users\patri\source\repos\TripHelper\src\TripHelper.Domain\bin\Debug\net8.0\TripHelper.Domain.dll
+C:\Users\patri\source\repos\TripHelper\src\TripHelper.Domain\bin\Debug\net8.0\TripHelper.Domain.pdb
+C:\Users\patri\source\repos\TripHelper\src\TripHelper.Domain\obj\Debug\net8.0\TripHelper.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\patri\source\repos\TripHelper\src\TripHelper.Domain\obj\Debug\net8.0\TripHelper.Domain.AssemblyInfoInputs.cache
+C:\Users\patri\source\repos\TripHelper\src\TripHelper.Domain\obj\Debug\net8.0\TripHelper.Domain.AssemblyInfo.cs
+C:\Users\patri\source\repos\TripHelper\src\TripHelper.Domain\obj\Debug\net8.0\TripHelper.Domain.csproj.CoreCompileInputs.cache
+C:\Users\patri\source\repos\TripHelper\src\TripHelper.Domain\obj\Debug\net8.0\TripHelper.Domain.dll
+C:\Users\patri\source\repos\TripHelper\src\TripHelper.Domain\obj\Debug\net8.0\refint\TripHelper.Domain.dll
+C:\Users\patri\source\repos\TripHelper\src\TripHelper.Domain\obj\Debug\net8.0\TripHelper.Domain.pdb
+C:\Users\patri\source\repos\TripHelper\src\TripHelper.Domain\obj\Debug\net8.0\ref\TripHelper.Domain.dll
+C:\Users\patri\source\repos\TripHelper\src\TripHelper.Domain\obj\Debug\net8.0\TripHelper.Domain.csproj.AssemblyReference.cache

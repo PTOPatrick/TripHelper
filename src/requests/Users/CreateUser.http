@@ -1,0 +1,12 @@
+@host=https://localhost:7005
+
+POST {{host}}/api/users
+Content-Type: application/json
+
+{
+  "firstname": "firstname1",
+  "lastname": "lastname1",
+  "isSuperAdmin": false,
+  "password": "password1",
+  "email": "user4@example.com"
+}
