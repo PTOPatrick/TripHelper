@@ -13,3 +13,4 @@ C:\Users\patri\source\repos\TripHelper\src\TripHelper.Application\obj\Debug\net8
 C:\Users\patri\source\repos\TripHelper\src\TripHelper.Application\obj\Debug\net8.0\refint\TripHelper.Application.dll
 C:\Users\patri\source\repos\TripHelper\src\TripHelper.Application\obj\Debug\net8.0\TripHelper.Application.pdb
 C:\Users\patri\source\repos\TripHelper\src\TripHelper.Application\obj\Debug\net8.0\ref\TripHelper.Application.dll
+C:\Users\patri\source\repos\TripHelper\src\TripHelper.Application\obj\Debug\net8.0\TripHelper.Application.sourcelink.json

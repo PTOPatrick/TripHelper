@@ -10,3 +10,4 @@ C:\Users\patri\source\repos\TripHelper\src\TripHelper.Domain\obj\Debug\net8.0\re
 C:\Users\patri\source\repos\TripHelper\src\TripHelper.Domain\obj\Debug\net8.0\TripHelper.Domain.pdb
 C:\Users\patri\source\repos\TripHelper\src\TripHelper.Domain\obj\Debug\net8.0\ref\TripHelper.Domain.dll
 C:\Users\patri\source\repos\TripHelper\src\TripHelper.Domain\obj\Debug\net8.0\TripHelper.Domain.csproj.AssemblyReference.cache
+C:\Users\patri\source\repos\TripHelper\src\TripHelper.Domain\obj\Debug\net8.0\TripHelper.Domain.sourcelink.json

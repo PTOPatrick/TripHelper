@@ -2,6 +2,7 @@ using AdminCenter.Application.Common.Secrets;
 using TripHelper.Api.Common.ConnectionStringOptions;
 using TripHelper.Application;
 using TripHelper.Infrastructure;
+using TripHelper.Infrastructure.Common.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +19,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddProblemDetails();
+builder.Services.AddHttpContextAccessor();
+
 builder.Services
     .AddApplication()
     .AddInfrastructure(secretManager.GetSecret(Environment.GetEnvironmentVariable("DB_CONNECTION_STRING_KEY")!));
@@ -25,6 +28,7 @@ builder.Services
 var app = builder.Build();
 
 app.UseExceptionHandler();
+app.AddInfrastructureMiddleware();
 
 if (app.Environment.IsDevelopment())
 {

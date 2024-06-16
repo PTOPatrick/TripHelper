@@ -8,5 +8,5 @@ Content-Type: application/json
   "lastname": "lastname1",
   "isSuperAdmin": false,
   "password": "password1",
-  "email": "user4@example.com"
+  "email": "user8@example.com"
 }

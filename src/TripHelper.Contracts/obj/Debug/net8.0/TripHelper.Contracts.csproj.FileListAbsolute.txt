@@ -9,3 +9,4 @@ C:\Users\patri\source\repos\TripHelper\src\TripHelper.Contracts\obj\Debug\net8.0
 C:\Users\patri\source\repos\TripHelper\src\TripHelper.Contracts\obj\Debug\net8.0\refint\TripHelper.Contracts.dll
 C:\Users\patri\source\repos\TripHelper\src\TripHelper.Contracts\obj\Debug\net8.0\TripHelper.Contracts.pdb
 C:\Users\patri\source\repos\TripHelper\src\TripHelper.Contracts\obj\Debug\net8.0\ref\TripHelper.Contracts.dll
+C:\Users\patri\source\repos\TripHelper\src\TripHelper.Contracts\obj\Debug\net8.0\TripHelper.Contracts.sourcelink.json

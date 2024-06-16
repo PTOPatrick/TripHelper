@@ -7,5 +7,14 @@ public abstract class Entity
 
     protected Entity(int id) => Id = id;
 
+    public List<IDomainEvent> PopDomainEvents()
+    {
+        var copy = _domainEvents.ToList();
+
+        _domainEvents.Clear();
+
+        return copy;
+    }
+
     protected Entity() { }
 }

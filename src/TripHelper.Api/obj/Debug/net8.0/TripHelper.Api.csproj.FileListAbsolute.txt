@@ -151,3 +151,4 @@ C:\Users\patri\source\repos\TripHelper\src\TripHelper.Api\bin\Debug\net8.0\Azure
 C:\Users\patri\source\repos\TripHelper\src\TripHelper.Api\bin\Debug\net8.0\FluentValidation.dll
 C:\Users\patri\source\repos\TripHelper\src\TripHelper.Api\bin\Debug\net8.0\FluentValidation.AspNetCore.dll
 C:\Users\patri\source\repos\TripHelper\src\TripHelper.Api\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\patri\source\repos\TripHelper\src\TripHelper.Api\obj\Debug\net8.0\TripHelper.Api.sourcelink.json
