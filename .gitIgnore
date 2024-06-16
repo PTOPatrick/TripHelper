@@ -1,0 +1,114 @@
+# ASP.NET Core
+## Ignore Visual Studio temporary files, build results, and
+## build directories.
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Ll]og/
+[Ll]ogs/
+[Bb]in/
+[Oo]bj/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# DotNetCore
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# StyleCop
+StyleCopReport.xml
+
+# Files built by Visual Studio
+*.dll
+*.pdb
+*.exe
+*.app
+*.ipa
+*.appx
+*.appxbundle
+*.msix
+*.msixbundle
+*.msm
+*.msi
+*.aar
+*.jar
+
+# npm package directories
+node_modules/
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Build directories
+build/
+dist/
+
+# Local history for JetBrains IDEs
+.idea/.idea/
+
+# Log files
+*.log
+
+# VS Code
+## Ignore VS Code settings
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+## Uncomment if you have an extensions file
+# !.vscode/extensions.json
+
+# Ignore all test coverage folders
+coverage/
+
+# JetBrains Rider
+.idea/
+
+# User-specific files created by Rider
+.idea/*
+!.idea/workspace.xml
+!.idea/tasks.xml
+!.idea/dictionaries
+!.idea/vcs.xml
+!.idea/jsLibraryMappings.xml
+
+# Rider SDK
+.idea/libraries
+
+# JetBrains Rider managed folders
+.idea/deploymentTargetDropServer/
+.idea/kotlin/
+.idea/repl/
+.idea/sync/
+
+# Windows-specific files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS-specific files
+.DS_Store
+
+# Additional build directories
+build/
+dist/
