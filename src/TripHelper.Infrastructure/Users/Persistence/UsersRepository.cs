@@ -37,4 +37,9 @@ public class UsersRepository(TripHelperDbContext dbContext) : IUsersRepository
 
         return Task.CompletedTask;
     }
+
+    public async Task<List<User>> GetUsersByIdsAsync(List<int> userIds)
+    {
+        return await _dbContext.Users.Where(u => userIds.Contains(u.Id)).ToListAsync();
+    }
 }

@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using TripHelper.Application.Common.Interfaces;
 using TripHelper.Infrastructure.Common.Persistence;
 
@@ -29,6 +30,11 @@ namespace TripHelper.Infrastructure.Trip.Persistence
             _dbContext.Trips.Remove(trip);
 
             await Task.CompletedTask;
+        }
+
+        public async Task<List<Domain.Trips.Trip>> GetTripsByIdsAsync(List<int> ids)
+        {
+            return await _dbContext.Trips.Where(t => ids.Contains(t.Id)).ToListAsync();
         }
     }
 }

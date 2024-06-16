@@ -22,5 +22,13 @@ public static class TripErrors
 
     public static readonly Error TripNotFound = Error.NotFound(
         code: "Trip.TripNotFound",
-        description: "Trip not found.");      
+        description: "Trip not found.");
+
+    public static readonly Error UserHasNoTrips = Error.Validation(
+        code: "Trip.UserHasNoTrips",
+        description: "User has no trips.");
+
+    public static readonly Error TripsNotFound = Error.NotFound(
+        code: "Trip.TripsNotFound",
+        description: "Trips not found.");
 }

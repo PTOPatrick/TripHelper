@@ -19,11 +19,10 @@ public class DeleteMemberCommandHandler(
         if (member is null)
             return MemberErrors.MemberNotFound;
 
-        // TODO: member.MemberDeleted(); --> checken, ob trip noch leute drin hat
+        member.MemberDeleted();
         
         await _memberRepository.DeleteMemberAsync(member);
         await _unitOfWork.CommitChangesAsync();
-
 
         return Result.Deleted;
     }

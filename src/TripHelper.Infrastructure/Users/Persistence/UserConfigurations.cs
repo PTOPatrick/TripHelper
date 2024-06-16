@@ -14,6 +14,5 @@ public class UserConfigurations : IEntityTypeConfiguration<User>
         builder.Property(u => u.Lastname).IsRequired();
         builder.Property(u => u.Password).IsRequired();
         builder.Property(u => u.IsSuperAdmin).IsRequired();
-        builder.Property("_memberIds").HasColumnName("MemberIds").IsRequired(false);
     }
 }

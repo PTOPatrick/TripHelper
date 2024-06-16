@@ -15,6 +15,5 @@ public class TripConfigurations : IEntityTypeConfiguration<Domain.Trips.Trip>
         builder.Property(t => t.StartDate).IsRequired(false);
         builder.Property(t => t.EndDate).IsRequired(false);
         builder.Property(t => t.ImageUrl).IsRequired(false);
-        builder.Property("_memberIds").HasColumnName("MemberIds").IsRequired(false);
     }
 }

@@ -8,10 +8,12 @@ namespace TripHelper.Application.Trips.Events;
 
 public class MemberDeletedEventHandler(
     ITripsRepository tripsRepository,
+    IMembersRepository membersRepository,
     IUnitOfWork unitOfWork
 ) : INotificationHandler<MemberDeletedEvent>
 {
     private readonly ITripsRepository _tripsRepository = tripsRepository;
+    private readonly IMembersRepository _membersRepository = membersRepository;
     private readonly IUnitOfWork _unitOfWork = unitOfWork;
     private Trip? _trip;
 
@@ -21,30 +23,28 @@ public class MemberDeletedEventHandler(
         if (validationResult.IsError)
             return;
 
-        await UpdateOrDeleteTrip();
+        await DeleteTripIfNoMembersAssigned();
     }
 
-    private async Task UpdateOrDeleteTrip()
+    private async Task DeleteTripIfNoMembersAssigned()
     {
-        if (!TripHasMembers())
+        if (!await TripHasMembers())
             await _tripsRepository.DeleteTripAsync(_trip!);
-        else
-            await _tripsRepository.UpdateTripAsync(_trip!);
 
         await _unitOfWork.CommitChangesAsync();
     }
 
-    private bool TripHasMembers() => _trip!.GetMemberCount() is not 0;
+    private async Task<bool> TripHasMembers()
+    {
+        var members = await _membersRepository.GetMembersByTripIdAsync(_trip!.Id);
+        return members.Count is not 0;
+    }
 
     private async Task<ErrorOr<Success>> ValidateRequestAndFillUpTrip(MemberDeletedEvent notification)
     {
         _trip = await _tripsRepository.GetTripByIdAsync(notification.TripId);
         if (_trip is null)
             return TripErrors.TripNotFound;
-
-        var result = _trip.RemoveMember(notification.MemberId);
-        if (result.IsError)
-            return result.Errors;
 
         return Result.Success;
     }
