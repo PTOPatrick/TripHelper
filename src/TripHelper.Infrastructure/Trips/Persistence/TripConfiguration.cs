@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace TripHelper.Infrastructure.Trip.Persistence;
+namespace TripHelper.Infrastructure.Trips.Persistence;
 
 public class TripConfigurations : IEntityTypeConfiguration<Domain.Trips.Trip>
 {

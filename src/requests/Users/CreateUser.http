@@ -1,14 +1,14 @@
 @host=https://localhost:7005
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUGF0cmljayIsImZhbWlseV9uYW1lIjoiVG9tYSIsImVtYWlsIjoicGF0cmljay50b21hQGdteC5jaCIsImlkIjoiOCIsInJvbGVzIjoiU3VwZXIgQWRtaW4iLCJ1c2VyTWVtYmVyIjoiIiwiYWRtaW5NZW1iZXIiOiIyLDMsNCIsImV4cCI6MTcxODYyNzIwNywiaXNzIjoiVHJpcEhlbHBlciIsImF1ZCI6IlRyaXBIZWxwZXIifQ.8CF8NXgQb9Kj1--DHRf736sIraGX26oE5dkafX5H7Go
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiTWF4IiwiZmFtaWx5X25hbWUiOiJNdXN0ZXIiLCJlbWFpbCI6Im1heC5tdXN0ZXJAZXhhbXBsZS5jb20iLCJpZCI6IjEzIiwicm9sZXMiOiIiLCJ1c2VyTWVtYmVyIjoiNiIsImFkbWluTWVtYmVyIjoiIiwiZXhwIjoxNzE4NjQxNzQxLCJpc3MiOiJUcmlwSGVscGVyIiwiYXVkIjoiVHJpcEhlbHBlciJ9.gndnhZVeEWu3jmpiO1ro8bVsXPzQ65SZnEhkdckgdrM
 
 POST {{host}}/api/users
 Content-Type: application/json
 Authorization: Bearer {{token}}
 
 {
-  "firstname": "firstname1",
-  "lastname": "lastname1",
+  "firstname": "Max",
+  "lastname": "Muster",
   "isSuperAdmin": false,
   "password": "aBc123!@#",
-  "email": "u2ser11ss@example.com"
+  "email": "max2.muster@example.com"
 }

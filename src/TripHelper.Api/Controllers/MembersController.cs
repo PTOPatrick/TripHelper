@@ -25,7 +25,7 @@ public class MembersController(
         var result = await _sender.Send(command);
 
         return result.Match(
-            member => Ok(new MemberResponse(member.Id, member.UserId, member.TripId, member.IsAdmin)),
+            member => Ok(new MemberResponse(member.Id, member.UserId, member.TripId, member.IsAdmin, member.Email)),
             Problem);
     }
 
@@ -37,7 +37,7 @@ public class MembersController(
         var result = await _sender.Send(query);
 
         return result.Match(
-            member => Ok(new MemberResponse(member.Id, member.UserId, member.TripId, member.IsAdmin)),
+            member => Ok(new MemberResponse(member.Id, member.UserId, member.TripId, member.IsAdmin, member.Email)),
             Problem);
     }
 
@@ -49,7 +49,7 @@ public class MembersController(
         var result = await _sender.Send(command);
 
         return result.Match(
-            member => Ok(new MemberResponse(member.Id, member.UserId, member.TripId, member.IsAdmin)),
+            member => Ok(new MemberResponse(member.Id, member.UserId, member.TripId, member.IsAdmin, member.Email)),
             Problem);
     }
 

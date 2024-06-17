@@ -29,7 +29,10 @@ public class MemberDeletedEventHandler(
     private async Task DeleteTripIfNoMembersAssigned()
     {
         if (!await TripHasMembers())
+        {
+            _trip!.DeleteTrip();
             await _tripsRepository.DeleteTripAsync(_trip!);
+        }
 
         await _unitOfWork.CommitChangesAsync();
     }

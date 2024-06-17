@@ -1,6 +1,8 @@
 using ErrorOr;
 using MediatR;
 using TripHelper.Application.Common.Interfaces;
+using TripHelper.Application.Common.Models;
+using TripHelper.Application.Common.Services.Authorization;
 using TripHelper.Domain.Members;
 using TripHelper.Domain.Users;
 
@@ -10,17 +12,17 @@ public class CreateMemberCommandHandler(
     IMembersRepository _membersRepository,
     IUsersRepository _usersRepository,
     ITripsRepository _tripsRepository,
-    IUnitOfWork _unitOfWork
-) : IRequestHandler<CreateMemberCommand, ErrorOr<Member>>
+    IUnitOfWork _unitOfWork,
+    AuthorizationService _authorizationService
+) : IRequestHandler<CreateMemberCommand, ErrorOr<MemberWithEmail>>
 {
-    private readonly IMembersRepository _membersRepository = _membersRepository;
-    private readonly IUsersRepository _usersRepository = _usersRepository;
-    private readonly ITripsRepository _tripsRepository = _tripsRepository;
-    private readonly IUnitOfWork _unitOfWork = _unitOfWork;
     private User? _user;
 
-    public async Task<ErrorOr<Member>> Handle(CreateMemberCommand request, CancellationToken cancellationToken)
+    public async Task<ErrorOr<MemberWithEmail>> Handle(CreateMemberCommand request, CancellationToken cancellationToken)
     {
+        if (!_authorizationService.CanCreateMember(request.TripId))
+            return Error.Unauthorized();
+            
         var validationResult = await ValidateRequest(request);
         if (validationResult.IsError)
             return validationResult.Errors;
@@ -30,7 +32,7 @@ public class CreateMemberCommandHandler(
         await _membersRepository.AddMemberAsync(member);
         await _unitOfWork.CommitChangesAsync();
 
-        return member;
+        return new MemberWithEmail(member.Id, member.UserId, member.TripId, member.IsAdmin, _user.Email);
     }
 
     private async Task<ErrorOr<Success>> ValidateRequest(CreateMemberCommand request)
@@ -42,6 +44,9 @@ public class CreateMemberCommandHandler(
         var trip = await _tripsRepository.GetTripByIdAsync(request.TripId);
         if (trip is null)
             return MemberErrors.TripNotFound;
+
+        if (await _membersRepository.GetMemberByUserIdAndTripIdAsync(_user.Id, request.TripId) is not null)
+            return MemberErrors.MemberAlreadyExists;
 
         return Result.Success;
     }

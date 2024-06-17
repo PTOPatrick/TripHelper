@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using TripHelper.Application.Common.Interfaces;
 using TripHelper.Domain.Common;
 using TripHelper.Domain.Members;
+using TripHelper.Domain.TripItems;
+using TripHelper.Domain.Trips;
 using TripHelper.Domain.Users;
 
 namespace TripHelper.Infrastructure.Common.Persistence;
@@ -16,7 +18,8 @@ public class TripHelperDbContext(
 
     public DbSet<User> Users { get; set; } = null!;
     public DbSet<Member> Members { get; set; } = null!;
-    public DbSet<Domain.Trips.Trip> Trips { get; set; } = null!;
+    public DbSet<Trip> Trips { get; set; } = null!;
+    public DbSet<TripItem> TripItems { get; set; } = null!;
 
     public async Task CommitChangesAsync()
     {

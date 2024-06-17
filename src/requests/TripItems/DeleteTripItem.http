@@ -1,0 +1,8 @@
+@host=https://localhost:7005
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUGF0cmljayIsImZhbWlseV9uYW1lIjoiVG9tYSIsImVtYWlsIjoicGF0cmljay50b21hQGdteC5jaCIsImlkIjoiOCIsInJvbGVzIjoiU3VwZXIgQWRtaW4iLCJ1c2VyTWVtYmVyIjoiIiwiYWRtaW5NZW1iZXIiOiIiLCJleHAiOjE3MTg2MzgzNzAsImlzcyI6IlRyaXBIZWxwZXIiLCJhdWQiOiJUcmlwSGVscGVyIn0.t1MGzFRdgZQ78svGPnzblzrGfk64Fbn7L2_sVvBld5c
+@tripId=5
+@tripItemId=1
+
+DELETE {{host}}/api/trips/{{tripId}}/items/{{tripItemId}}
+Content-Type: application/json
+Authorization: Bearer {{token}}

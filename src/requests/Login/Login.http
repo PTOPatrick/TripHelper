@@ -4,6 +4,11 @@ POST {{host}}/login
 Content-Type: application/json
 
 {
-  "password": "MQ4QxSSAb778!$0",
-  "email": "patrick.toma@gmx.ch"
+  "password": "aBc123!@#",
+  "email": "max.muster@example.com"
 }
+
+# {
+#   "password": "MQ4QxSSAb778!$0",
+#   "email": "patrick.toma@gmx.ch"
+# }

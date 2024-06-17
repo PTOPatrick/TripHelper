@@ -29,5 +29,20 @@ public class Trip : Entity
         _domainEvents.Add(new TripDeletedEvent(Id));
     }
 
+    public void Update(string name, DateTime? startDate, DateTime? endDate, string? description, string? location, string? imageUrl)
+    {
+        Name = name;
+        StartDate = startDate;
+        EndDate = endDate;
+        Description = description;
+        Location = location;
+        ImageUrl = imageUrl;
+    }
+
+    public void CreateTrip()
+    {
+        _domainEvents.Add(new TripCreatedEvent(Id));
+    }
+
     private Trip() { }
 }

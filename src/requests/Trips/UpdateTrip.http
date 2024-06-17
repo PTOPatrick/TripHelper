@@ -1,0 +1,16 @@
+@host=https://localhost:7005
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUGF0cmljayIsImZhbWlseV9uYW1lIjoiVG9tYSIsImVtYWlsIjoicGF0cmljay50b21hQGdteC5jaCIsImlkIjoiOCIsInJvbGVzIjoiU3VwZXIgQWRtaW4iLCJ1c2VyTWVtYmVyIjoiIiwiYWRtaW5NZW1iZXIiOiIiLCJleHAiOjE3MTg2MzgzNzAsImlzcyI6IlRyaXBIZWxwZXIiLCJhdWQiOiJUcmlwSGVscGVyIn0.t1MGzFRdgZQ78svGPnzblzrGfk64Fbn7L2_sVvBld5c
+@tripId=7
+
+PUT {{host}}/api/trips/{{tripId}}
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "Max's first Trip",
+    "startDate": "2022-04-01T00:00:00",
+    "endDate": "2022-04-15T00:00:00",
+    "description": "This is my first trip",
+    "location": "India",
+    "imageUrl": "https://www.google.com"
+}

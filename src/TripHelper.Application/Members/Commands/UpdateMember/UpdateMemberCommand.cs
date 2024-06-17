@@ -1,7 +1,9 @@
 using ErrorOr;
 using MediatR;
-using TripHelper.Domain.Members;
+using TripHelper.Application.Common.Authorization;
+using TripHelper.Application.Common.Models;
 
 namespace TripHelper.Application.Members.Commands.UpdateMember;
 
-public record UpdateMemberCommand(int Id, bool IsAdmin) : IRequest<ErrorOr<Member>>;
+[Authorize]
+public record UpdateMemberCommand(int Id, bool IsAdmin) : IRequest<ErrorOr<MemberWithEmail>>;

@@ -1,7 +1,9 @@
 using ErrorOr;
 using MediatR;
-using TripHelper.Domain.Members;
+using Microsoft.AspNetCore.Authorization;
+using TripHelper.Application.Common.Models;
 
 namespace TripHelper.Application.Members.Queries.GetMember;
 
-public record GetMemberQuery(int Id) : IRequest<ErrorOr<Member>>;
+[Authorize]
+public record GetMemberQuery(int Id) : IRequest<ErrorOr<MemberWithEmail>>;

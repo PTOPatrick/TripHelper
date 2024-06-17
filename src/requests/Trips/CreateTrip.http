@@ -1,10 +1,10 @@
 @host=https://localhost:7005
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUGF0cmljayIsImZhbWlseV9uYW1lIjoiVG9tYSIsImVtYWlsIjoicGF0cmljay50b21hQGdteC5jaCIsImlkIjoiOCIsImlzU3VwZXJBZG1pbiI6dHJ1ZSwicmVhZGVyV3JpdGVySWRzIjoiIiwiYWRtaW5JZHMiOiIiLCJleHAiOjE3MTg2MTc5ODEsImlzcyI6IlRyaXBIZWxwZXIiLCJhdWQiOiJUcmlwSGVscGVyIn0.g7NnM23a-n3VvjV9aJsexAcBkymZNYQb7KRyKscyDbs
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiTWF4IiwiZmFtaWx5X25hbWUiOiJNdXN0ZXIiLCJlbWFpbCI6Im1heC5tdXN0ZXJAZXhhbXBsZS5jb20iLCJpZCI6IjEzIiwicm9sZXMiOiIiLCJ1c2VyTWVtYmVyIjoiIiwiYWRtaW5NZW1iZXIiOiI2IiwiZXhwIjoxNzE4NjQxOTY2LCJpc3MiOiJUcmlwSGVscGVyIiwiYXVkIjoiVHJpcEhlbHBlciJ9.sbSDQDEAXOxIpN5jZ9GgZE7HP4LiynHtUc_CM2kpBes
 
 POST {{host}}/api/trips
 Content-Type: application/json
 Authorization: Bearer {{token}}
 
 {
-  "name": "Patrick's first Trip"
+  "name": "Max's 3th Trip"
 }

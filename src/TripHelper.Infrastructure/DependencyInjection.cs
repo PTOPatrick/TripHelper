@@ -10,7 +10,8 @@ using TripHelper.Infrastructure.Authentication.PasswordHasher;
 using TripHelper.Infrastructure.Authentication.TokenGenerator;
 using TripHelper.Infrastructure.Common.Persistence;
 using TripHelper.Infrastructure.Members.Persistence;
-using TripHelper.Infrastructure.Trip.Persistence;
+using TripHelper.Infrastructure.TripItems.Persistence;
+using TripHelper.Infrastructure.Trips.Persistence;
 using TripHelper.Infrastructure.Users.Persistence;
 
 namespace TripHelper.Infrastructure;
@@ -30,6 +31,7 @@ public static class DependencyInjection
         services.AddScoped<IUsersRepository, UsersRepository>();
         services.AddScoped<IMembersRepository, MembersRepository>();
         services.AddScoped<ITripsRepository, TripsRepository>();
+        services.AddScoped<ITripItemsRepository, TripItemsRepository>();
         services.AddScoped<IUnitOfWork>(serviceProvider => serviceProvider.GetRequiredService<TripHelperDbContext>());
         
         return services;

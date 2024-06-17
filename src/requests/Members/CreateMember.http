@@ -1,12 +1,12 @@
 @host=https://localhost:7005
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUGF0cmljayIsImZhbWlseV9uYW1lIjoiVG9tYSIsImVtYWlsIjoicGF0cmljay50b21hQGdteC5jaCIsImlkIjoiOCIsImlzU3VwZXJBZG1pbiI6dHJ1ZSwicmVhZGVyV3JpdGVySWRzIjoiIiwiYWRtaW5JZHMiOiIiLCJleHAiOjE3MTg2MTc5ODEsImlzcyI6IlRyaXBIZWxwZXIiLCJhdWQiOiJUcmlwSGVscGVyIn0.g7NnM23a-n3VvjV9aJsexAcBkymZNYQb7KRyKscyDbs
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiTWF4IiwiZmFtaWx5X25hbWUiOiJNdXN0ZXIiLCJlbWFpbCI6Im1heC5tdXN0ZXJAZXhhbXBsZS5jb20iLCJpZCI6IjEzIiwicm9sZXMiOiIiLCJ1c2VyTWVtYmVyIjoiNiIsImFkbWluTWVtYmVyIjoiIiwiZXhwIjoxNzE4NjQxNzQxLCJpc3MiOiJUcmlwSGVscGVyIiwiYXVkIjoiVHJpcEhlbHBlciJ9.gndnhZVeEWu3jmpiO1ro8bVsXPzQ65SZnEhkdckgdrM
 
 POST {{host}}/api/members
 Content-Type: application/json
 Authorization: Bearer {{token}}
 
 {
-  "email": "patrick.toma@gmx.ch",
-  "tripId": 1,
+  "email": "max.muster@example.com",
+  "tripId": 7,
   "isAdmin": false
 }

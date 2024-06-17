@@ -17,6 +17,16 @@ public class AuthorizationService
         _userTripIds = currentUser.UserTripIds;
     }
 
+    public int GetCurrentUserId()
+    {
+        return _currentUserId;
+    }
+
+    public bool IsSuperAdmin()
+    {
+        return _isSuperAdmin;
+    }
+
     public bool CanCreateUser()
     {
         return _isSuperAdmin;

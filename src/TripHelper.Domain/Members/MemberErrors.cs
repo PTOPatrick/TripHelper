@@ -14,4 +14,8 @@ public static class MemberErrors
     public static readonly Error TripNotFound = Error.NotFound(
         code: "Member.TripNotFound",
         description: "Trip is not found.");
+
+    public static readonly Error MemberAlreadyExists = Error.NotFound(
+        code: "Member.MemberAlreadyExists",
+        description: "Member already exists.");
 }

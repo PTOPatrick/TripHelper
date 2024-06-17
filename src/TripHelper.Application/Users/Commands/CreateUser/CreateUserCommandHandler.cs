@@ -7,14 +7,10 @@ using TripHelper.Domain.Users;
 namespace TripHelper.Application.Users.Commands.CreateUser;
 
 public class CreateUserCommandHandler(
-    IUsersRepository usersRepository,
-    IUnitOfWork unitOfWork,
-    IPasswordHasher passwordHasher) : IRequestHandler<CreateUserCommand, ErrorOr<User>>
+    IUsersRepository _usersRepository,
+    IUnitOfWork _unitOfWork,
+    IPasswordHasher _passwordHasher) : IRequestHandler<CreateUserCommand, ErrorOr<User>>
 {
-    private readonly IUsersRepository _usersRepository = usersRepository;
-    private readonly IUnitOfWork _unitOfWork = unitOfWork;
-    private readonly IPasswordHasher _passwordHasher = passwordHasher;
-    
     public async Task<ErrorOr<User>> Handle(CreateUserCommand command, CancellationToken cancellationToken)
     {
         var requestValidationResult = await ValidateRequest(command);
