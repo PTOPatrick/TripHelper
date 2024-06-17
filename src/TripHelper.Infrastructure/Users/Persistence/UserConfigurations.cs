@@ -12,7 +12,7 @@ public class UserConfigurations : IEntityTypeConfiguration<User>
         builder.Property(u => u.Email).IsRequired();
         builder.Property(u => u.Firstname).IsRequired();
         builder.Property(u => u.Lastname).IsRequired();
-        builder.Property(u => u.Password).IsRequired();
+        builder.Property(u => u.PasswordHash).IsRequired();
         builder.Property(u => u.IsSuperAdmin).IsRequired();
     }
 }

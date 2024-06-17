@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TripHelper.Infrastructure.Common.Persistence;
 
@@ -11,9 +12,11 @@ using TripHelper.Infrastructure.Common.Persistence;
 namespace TripHelper.Infrastructure.Migrations
 {
     [DbContext(typeof(TripHelperDbContext))]
-    partial class TripHelperDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240617082141_UpdateUsers1")]
+    partial class UpdateUsers1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -65,6 +68,7 @@ namespace TripHelper.Infrastructure.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Location")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")

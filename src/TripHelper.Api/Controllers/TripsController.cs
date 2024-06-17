@@ -6,10 +6,12 @@ using TripHelper.Application.Trips.Queries.GetTrip;
 using TripHelper.Application.Trips.Queries.GetTrips;
 using TripHelper.Application.Trips.Commands.UpdateTrip;
 using TripHelper.Application.Trips.Commands.DeleteTrip;
+using Microsoft.AspNetCore.Authorization;
 
 namespace TripHelper.Api.Controllers;
 
 [Route("api/[controller]")]
+[Authorize]
 public class TripsController(ISender sender) : ApiController
 {
     private readonly ISender _sender = sender;

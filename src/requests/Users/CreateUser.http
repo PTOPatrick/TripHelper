@@ -1,12 +1,14 @@
 @host=https://localhost:7005
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUGF0cmljayIsImZhbWlseV9uYW1lIjoiVG9tYSIsImVtYWlsIjoicGF0cmljay50b21hQGdteC5jaCIsImlkIjoiOCIsInJvbGVzIjoiU3VwZXIgQWRtaW4iLCJyZWFkZXJXcml0ZXJJZHMiOiIiLCJhZG1pbklkcyI6IiIsImV4cCI6MTcxODYyMzk5NiwiaXNzIjoiVHJpcEhlbHBlciIsImF1ZCI6IlRyaXBIZWxwZXIifQ.CTDpmR-SZxeXx7CjLr3GGe6140nRt8V-QR77Ekd8sw4
 
 POST {{host}}/api/users
 Content-Type: application/json
+Authorization: Bearer {{token}}
 
 {
   "firstname": "firstname1",
   "lastname": "lastname1",
   "isSuperAdmin": false,
-  "password": "password1",
-  "email": "user8@example.com"
+  "password": "aBc123!@#",
+  "email": "user1daa@example.com"
 }

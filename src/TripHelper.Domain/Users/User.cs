@@ -1,5 +1,6 @@
 using ErrorOr;
 using TripHelper.Domain.Common;
+using TripHelper.Domain.Common.Interfaces;
 using TripHelper.Domain.Users.Events;
 
 namespace TripHelper.Domain.Users;
@@ -11,15 +12,15 @@ public class User : Entity
     public string Email { get; private set; } = null!;
     public string Firstname { get; set; } = null!;
     public string Lastname { get; set; } = null!;
-    public string Password { get; private set; } = null!;
+    public string PasswordHash { get; private set; } = null!;
     public bool IsSuperAdmin { get; private set; } = false;
 
-    public User(string email, string firstname, string lastname, string password, bool isSuperAdmin)
+    public User(string email, string firstname, string lastname, string passwordHash, bool isSuperAdmin)
     {
         Email = email;
         Firstname = firstname;
         Lastname = lastname;
-        Password = password;
+        PasswordHash = passwordHash;
         IsSuperAdmin = isSuperAdmin;
         _maxTrips = GetMaxTrips();
     }
@@ -36,6 +37,11 @@ public class User : Entity
         _domainEvents.Add(new MemberDeletedEvent(memberId));
 
         return Result.Success;
+    }
+
+    public bool IsCorrectPasswordHash(string password, IPasswordHasher passwordHasher)
+    {
+        return passwordHasher.IsCorrectPassword(password, PasswordHash);
     }
 
     private int GetMaxTrips() => IsSuperAdmin ? 100 : 10;

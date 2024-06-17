@@ -42,4 +42,9 @@ public class UsersRepository(TripHelperDbContext dbContext) : IUsersRepository
     {
         return await _dbContext.Users.Where(u => userIds.Contains(u.Id)).ToListAsync();
     }
+
+    public async Task<bool> ExistsByEmailAsync(string email)
+    {
+        return await _dbContext.Users.AnyAsync(u => u.Email.ToLower().Equals(email.ToLower()));
+    }
 }

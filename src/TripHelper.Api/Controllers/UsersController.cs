@@ -1,4 +1,5 @@
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TripHelper.Application.Users.Commands.CreateUser;
 using TripHelper.Application.Users.Commands.DeleteUser;
@@ -8,6 +9,7 @@ using TripHelper.Contracts.Users;
 namespace TripHelper.Api.Controllers;
 
 [Route("api/[controller]")]
+[Authorize]
 public class UsersController(
     ISender sender
 ) : ApiController

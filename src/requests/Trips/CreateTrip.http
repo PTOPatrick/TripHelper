@@ -1,0 +1,10 @@
+@host=https://localhost:7005
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUGF0cmljayIsImZhbWlseV9uYW1lIjoiVG9tYSIsImVtYWlsIjoicGF0cmljay50b21hQGdteC5jaCIsImlkIjoiOCIsImlzU3VwZXJBZG1pbiI6dHJ1ZSwicmVhZGVyV3JpdGVySWRzIjoiIiwiYWRtaW5JZHMiOiIiLCJleHAiOjE3MTg2MTc5ODEsImlzcyI6IlRyaXBIZWxwZXIiLCJhdWQiOiJUcmlwSGVscGVyIn0.g7NnM23a-n3VvjV9aJsexAcBkymZNYQb7KRyKscyDbs
+
+POST {{host}}/api/trips
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "name": "Patrick's first Trip"
+}

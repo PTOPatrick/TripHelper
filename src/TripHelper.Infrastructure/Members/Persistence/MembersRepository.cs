@@ -49,5 +49,10 @@ namespace TripHelper.Infrastructure.Members.Persistence
         {
             return await _dbContext.Members.Where(m => m.TripId == tripId).ToListAsync();
         }
+
+        public List<Member> GetMembersByUserId(int userId)
+        {
+            return [.. _dbContext.Members.Where(m => m.UserId == userId)];
+        }
     }
 }

@@ -5,7 +5,11 @@ namespace AdminCenter.Application.Common.Secrets
 {
     public class SecretsManager
     {
-        private readonly KeyValuePair<string, string> Auth0ManagedApiAudience = new(Environment.GetEnvironmentVariable("DB_CONNECTION_STRING_KEY")!, "");
+        private readonly KeyValuePair<string, string> DbConnectionString = new(Environment.GetEnvironmentVariable("DB_CONNECTION_STRING_KEY")!, "");
+        private readonly KeyValuePair<string, string> Issuer = new("Issuer", "");
+        private readonly KeyValuePair<string, int> TokenExpirationInMinutes = new("TokenExpirationInMinutes", 0);
+        private readonly KeyValuePair<string, string> Secret = new("Secret", "");
+        private readonly KeyValuePair<string, string> Audience = new("Audience", "");
         private readonly List<KeyVaultSecret> _secrets = [];
         private readonly SecretClient _client;
 
@@ -28,7 +32,11 @@ namespace AdminCenter.Application.Common.Secrets
 
         private void CollectSecrets()
         {
-            _secrets.Add(_client.GetSecret(Auth0ManagedApiAudience.Key));
+            _secrets.Add(_client.GetSecret(DbConnectionString.Key));
+            _secrets.Add(_client.GetSecret(Issuer.Key));
+            _secrets.Add(_client.GetSecret(TokenExpirationInMinutes.Key));
+            _secrets.Add(_client.GetSecret(Secret.Key));
+            _secrets.Add(_client.GetSecret(Audience.Key));
 
             if (!AreAllSecretsAreCollected())
                 throw new("Secret not found");
