@@ -28,11 +28,11 @@ public class JwtTokenGenerator(IOptions<JwtSettings> jwtOptions) : IJwtTokenGene
             new("roles", GetSuperAdminRole(user))
         };
 
-        var readerWriterIds = members.Where(m => !m.IsAdmin).Select(m => m.Id).ToList();
-        var adminIds = members.Where(m => m.IsAdmin).Select(m => m.Id).ToList();
+        var userRoles = members.Where(m => !m.IsAdmin).Select(m => m.TripId).ToList();
+        var adminRoles = members.Where(m => m.IsAdmin).Select(m => m.TripId).ToList();
 
-        AddReaderWriterIds(readerWriterIds, claims);
-        AddAdminIds(adminIds, claims);
+        AddReaderWriterIds(userRoles, claims);
+        AddAdminIds(adminRoles, claims);
 
         var token = new JwtSecurityToken(
             _jwtSettings.Issuer,
@@ -48,15 +48,15 @@ public class JwtTokenGenerator(IOptions<JwtSettings> jwtOptions) : IJwtTokenGene
     private static string GetSuperAdminRole(User user) => user.IsSuperAdmin ? "Super Admin" : "";
 
 
-    private static void AddReaderWriterIds(List<int> readerWriterIds, List<Claim> claims)
+    private static void AddReaderWriterIds(List<int> memberTrips, List<Claim> claims)
     {
         claims
-            .AddIfValueNotNull("readerWriterIds", String.Join(",", readerWriterIds));
+            .AddIfValueNotNull("userMember", string.Join(",", memberTrips));
     }
 
-    private static void AddAdminIds(List<int> adminIds, List<Claim> claims)
+    private static void AddAdminIds(List<int> memberTrips, List<Claim> claims)
     {
         claims
-            .AddIfValueNotNull("adminIds", String.Join(",", adminIds));
+            .AddIfValueNotNull("adminMember", string.Join(",", memberTrips));
     }
 }

@@ -1,22 +1,23 @@
 using ErrorOr;
 using MediatR;
 using TripHelper.Application.Common.Interfaces;
+using TripHelper.Application.Common.Services.Authorization;
 using TripHelper.Domain.Users;
 
 namespace TripHelper.Application.Users.Commands.DeleteUser;
 
 public class DeleteUserCommandHandler(
-    IUsersRepository usersRepository,
-    IUnitOfWork unitOfWork
+    IUsersRepository _usersRepository,
+    IUnitOfWork _unitOfWork,
+    AuthorizationService _authorizationService
 ) : IRequestHandler<DeleteUserCommand, ErrorOr<Deleted>>
 {
-    private readonly IUsersRepository _usersRepository = usersRepository;
-    private readonly IUnitOfWork _unitOfWork = unitOfWork;
-
     public async Task<ErrorOr<Deleted>> Handle(DeleteUserCommand request, CancellationToken cancellationToken)
     {
-        var user = await _usersRepository.GetUserByIdAsync(request.UserId);
+        if (!_authorizationService.CanDeleteUser(request.UserId))
+            return Error.Unauthorized();
 
+        var user = await _usersRepository.GetUserByIdAsync(request.UserId);
         if (user is null)
             return UserErrors.UserNotFound;
             

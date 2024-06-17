@@ -1,3 +1,5 @@
 @host=https://localhost:7005
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiUGF0cmljayIsImZhbWlseV9uYW1lIjoiVG9tYSIsImVtYWlsIjoicGF0cmljay50b21hQGdteC5jaCIsImlkIjoiOCIsInJvbGVzIjoiU3VwZXIgQWRtaW4iLCJ1c2VyTWVtYmVyIjoiIiwiYWRtaW5NZW1iZXIiOiIyLDMsNCIsImV4cCI6MTcxODYyNzIwNywiaXNzIjoiVHJpcEhlbHBlciIsImF1ZCI6IlRyaXBIZWxwZXIifQ.8CF8NXgQb9Kj1--DHRf736sIraGX26oE5dkafX5H7Go
 
-DELETE  {{host}}/api/users/6
+DELETE  {{host}}/api/users/9
+Authorization: Bearer {{token}}
