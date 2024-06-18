@@ -46,5 +46,7 @@ public class User : Entity
 
     private int GetMaxTrips() => IsSuperAdmin ? 100 : 10;
 
+    public bool HasReachedMaxMembers(int memberCount) => memberCount >= _maxTrips;
+
     private User() { }
 }

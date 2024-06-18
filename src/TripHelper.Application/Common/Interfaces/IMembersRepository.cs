@@ -10,6 +10,7 @@ public interface IMembersRepository
     Task DeleteMembersAsync(List<Member> members);
     Task<Member?> GetMemberAsync(int id);
     Task<Member?> GetMemberByUserIdAndTripIdAsync(int userId, int tripId);
+    Task<int> GetMemberCountByUserIdAsync(int userId);
     Task<List<Member>> GetMembersByTripIdAsync(int tripId);
     Task<List<Member>> GetMembersByUserIdAsync(int userId);
     Task UpdateMemberAsync(Member member);

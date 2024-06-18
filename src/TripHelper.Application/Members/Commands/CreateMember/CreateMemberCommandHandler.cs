@@ -40,6 +40,10 @@ public class CreateMemberCommandHandler(
         _user = await _usersRepository.GetUserByEmailAsync(request.Email);
         if (_user is null)
             return MemberErrors.UserNotFound;
+        
+        var memberCount = await _membersRepository.GetMemberCountByUserIdAsync(_user.Id);
+        if (_user.HasReachedMaxMembers(memberCount))
+            return MemberErrors.UserReachedMaxMembers;
 
         var trip = await _tripsRepository.GetTripByIdAsync(request.TripId);
         if (trip is null)

@@ -59,5 +59,10 @@ namespace TripHelper.Infrastructure.Members.Persistence
         {
             return await _dbContext.Members.FirstOrDefaultAsync(m => m.UserId == userId && m.TripId == tripId);
         }
+
+        public async Task<int> GetMemberCountByUserIdAsync(int userId)
+        {
+            return await _dbContext.Members.CountAsync(m => m.UserId == userId);
+        }
     }
 }

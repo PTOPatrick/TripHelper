@@ -7,17 +7,12 @@ using TripHelper.Domain.Common.Interfaces;
 namespace TripHelper.Application.Authentication.Queries.Login;
 
 public class LoginQueryHandler(
-    IJwtTokenGenerator jwtTokenGenerator,
-    IMembersRepository membersRepository,
-    IPasswordHasher passwordHasher,
-    IUsersRepository usersRepository)
+    IJwtTokenGenerator _jwtTokenGenerator,
+    IMembersRepository _membersRepository,
+    IPasswordHasher _passwordHasher,
+    IUsersRepository _usersRepository)
         : IRequestHandler<LoginQuery, ErrorOr<AuthenticationResult>>
 {
-    private readonly IJwtTokenGenerator _jwtTokenGenerator = jwtTokenGenerator;
-    private readonly IMembersRepository _membersRepository = membersRepository;
-    private readonly IPasswordHasher _passwordHasher = passwordHasher;
-    private readonly IUsersRepository _usersRepository = usersRepository;
-
     public async Task<ErrorOr<AuthenticationResult>> Handle(LoginQuery query, CancellationToken cancellationToken)
     {
         var user = await _usersRepository.GetUserByEmailAsync(query.Email);

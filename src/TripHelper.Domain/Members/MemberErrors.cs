@@ -18,4 +18,8 @@ public static class MemberErrors
     public static readonly Error MemberAlreadyExists = Error.NotFound(
         code: "Member.MemberAlreadyExists",
         description: "Member already exists.");
+
+    public static readonly Error UserReachedMaxMembers = Error.NotFound(
+        code: "Member.UserReachedMaxMembers",
+        description: "User has reached the maximum number of members.");
 }
