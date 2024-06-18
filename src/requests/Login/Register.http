@@ -7,5 +7,5 @@ Content-Type: application/json
   "firstname": "Max",
   "lastname": "Muster",
   "email": "max.muster@gmx.ch",
-  "password": "MQ4QxSSAb778!$0"
+  "password": "***"
 }
