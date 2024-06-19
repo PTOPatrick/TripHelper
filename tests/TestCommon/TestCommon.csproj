@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\TripHelper.Domain\TripHelper.Domain.csproj" />
+    <ProjectReference Include="..\..\src\TripHelper.Application\TripHelper.Application.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

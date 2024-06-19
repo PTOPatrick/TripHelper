@@ -1,0 +1,12 @@
+/home/luckylukas/Desktop/repos/TripHelper/src/TripHelper.Contracts/bin/Debug/net8.0/TripHelper.Contracts.deps.json
+/home/luckylukas/Desktop/repos/TripHelper/src/TripHelper.Contracts/bin/Debug/net8.0/TripHelper.Contracts.dll
+/home/luckylukas/Desktop/repos/TripHelper/src/TripHelper.Contracts/bin/Debug/net8.0/TripHelper.Contracts.pdb
+/home/luckylukas/Desktop/repos/TripHelper/src/TripHelper.Contracts/obj/Debug/net8.0/TripHelper.Contracts.GeneratedMSBuildEditorConfig.editorconfig
+/home/luckylukas/Desktop/repos/TripHelper/src/TripHelper.Contracts/obj/Debug/net8.0/TripHelper.Contracts.AssemblyInfoInputs.cache
+/home/luckylukas/Desktop/repos/TripHelper/src/TripHelper.Contracts/obj/Debug/net8.0/TripHelper.Contracts.AssemblyInfo.cs
+/home/luckylukas/Desktop/repos/TripHelper/src/TripHelper.Contracts/obj/Debug/net8.0/TripHelper.Contracts.csproj.CoreCompileInputs.cache
+/home/luckylukas/Desktop/repos/TripHelper/src/TripHelper.Contracts/obj/Debug/net8.0/TripHelper.Contracts.sourcelink.json
+/home/luckylukas/Desktop/repos/TripHelper/src/TripHelper.Contracts/obj/Debug/net8.0/TripHelper.Contracts.dll
+/home/luckylukas/Desktop/repos/TripHelper/src/TripHelper.Contracts/obj/Debug/net8.0/refint/TripHelper.Contracts.dll
+/home/luckylukas/Desktop/repos/TripHelper/src/TripHelper.Contracts/obj/Debug/net8.0/TripHelper.Contracts.pdb
+/home/luckylukas/Desktop/repos/TripHelper/src/TripHelper.Contracts/obj/Debug/net8.0/ref/TripHelper.Contracts.dll

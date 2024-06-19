@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "qMHh0Pce68w=",
+  "success": true,
+  "projectFilePath": "/home/luckylukas/Desktop/repos/TripHelper/src/TripHelper.Domain/TripHelper.Domain.csproj",
+  "expectedPackageFiles": [
+    "/home/luckylukas/.nuget/packages/erroror/2.0.1/erroror.2.0.1.nupkg.sha512",
+    "/home/luckylukas/.nuget/packages/mediatr/12.3.0/mediatr.12.3.0.nupkg.sha512",
+    "/home/luckylukas/.nuget/packages/mediatr.contracts/2.0.1/mediatr.contracts.2.0.1.nupkg.sha512",
+    "/home/luckylukas/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/8.0.0/microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestCommon", "tests\TestCom
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TripHelper.Domain.UnitTests", "tests\TripHelper.Domain.UnitTests\TripHelper.Domain.UnitTests.csproj", "{3974C69C-8DB8-4090-94A4-B3CF9F4B6376}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TripHelper.Application.UnitTests", "tests\TripHelper.Application.UnitTests\TripHelper.Application.UnitTests.csproj", "{D83E1CAA-775A-46BF-8787-C5F790ADAB83}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -58,6 +60,10 @@ Global
 		{3974C69C-8DB8-4090-94A4-B3CF9F4B6376}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3974C69C-8DB8-4090-94A4-B3CF9F4B6376}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3974C69C-8DB8-4090-94A4-B3CF9F4B6376}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D83E1CAA-775A-46BF-8787-C5F790ADAB83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D83E1CAA-775A-46BF-8787-C5F790ADAB83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D83E1CAA-775A-46BF-8787-C5F790ADAB83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D83E1CAA-775A-46BF-8787-C5F790ADAB83}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{ADCE7DEF-0AA6-4BBB-8102-2C2D1F5E38F3} = {FC15CAEE-0472-43D3-9A27-38F722FB8C3B}
@@ -67,5 +73,6 @@ Global
 		{4B2E8EC4-267E-4856-AFFD-198247613BED} = {FC15CAEE-0472-43D3-9A27-38F722FB8C3B}
 		{B3DC4831-B928-4AAE-8AEA-D2A28E1C960B} = {3DFE7091-4343-4D5B-9E14-A265A8995F4B}
 		{3974C69C-8DB8-4090-94A4-B3CF9F4B6376} = {3DFE7091-4343-4D5B-9E14-A265A8995F4B}
+		{D83E1CAA-775A-46BF-8787-C5F790ADAB83} = {3DFE7091-4343-4D5B-9E14-A265A8995F4B}
 	EndGlobalSection
 EndGlobal
