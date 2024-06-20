@@ -3,7 +3,6 @@ using TripHelper.Application.Common.Services.Authorization;
 using TripHelper.Application.Common.Models;
 using FluentAssertions;
 using Constants = TestCommon.TestConstants.Constants;
-using Microsoft.VisualBasic;
 
 namespace TripHelper.Application.UnitTests.Common.Services.Authorization;
 
