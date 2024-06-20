@@ -37,9 +37,7 @@ public class AuthorizationBehavior<TRequest, TResponse>(ICurrentUserProvider _cu
             .ToList();
 
         if (requiredRoles.Except(currentUser.Roles).Any())
-        {
             return (dynamic)Error.Unauthorized(description: "User is forbidden from taking this action");
-        }
 
         return await next();
     }

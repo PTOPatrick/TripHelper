@@ -94,7 +94,7 @@ public class AuthorizationService
 
     public bool CanGetMember(int tripId)
     {
-        return _isSuperAdmin || _adminTripIds.Contains(tripId);
+        return _isSuperAdmin || _adminTripIds.Contains(tripId) || _userTripIds.Contains(tripId);
     }
 
     public bool CanUpdateMember(int tripId)
