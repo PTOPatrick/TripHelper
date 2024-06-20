@@ -9,6 +9,10 @@ x86/
 [Ll]ogs/
 [Bb]in/
 [Oo]bj/
+/bin
+/obj
+**/bin
+**/obj
 
 # User-specific files
 *.rsuser
