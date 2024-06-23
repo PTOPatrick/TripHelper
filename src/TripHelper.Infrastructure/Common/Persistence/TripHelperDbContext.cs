@@ -1,4 +1,5 @@
 using System.Reflection;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using TripHelper.Application.Common.Interfaces;
@@ -11,11 +12,10 @@ using TripHelper.Domain.Users;
 namespace TripHelper.Infrastructure.Common.Persistence;
 
 public class TripHelperDbContext(
-    DbContextOptions<TripHelperDbContext> options,
-    IHttpContextAccessor httpContextAccessor) : DbContext(options), IUnitOfWork
+    DbContextOptions options,
+    IHttpContextAccessor _httpContextAccessor,
+    IPublisher _publisher) : DbContext(options), IUnitOfWork
 {
-    private readonly IHttpContextAccessor _httpContextAccessor = httpContextAccessor;
-
     public DbSet<User> Users { get; set; } = null!;
     public DbSet<Member> Members { get; set; } = null!;
     public DbSet<Trip> Trips { get; set; } = null!;
@@ -29,11 +29,28 @@ public class TripHelperDbContext(
             .SelectMany(x => x)
             .ToList();
 
-        // store them in the http context for later
-        AddDomainEventsToOfflineProcessingQueue(domainEvents);
+        // store them in the http context for later if user is waiting online
+        if (IsUserWaitingOnline())
+        {
+            AddDomainEventsToOfflineProcessingQueue(domainEvents);
+        }
+        else
+        {
+            await PublishDomainEvents(_publisher, domainEvents);
+        }
 
         await SaveChangesAsync();
     }
+
+    private static async Task PublishDomainEvents(IPublisher _publisher, List<IDomainEvent> domainEvents)
+    {
+        foreach (var domainEvent in domainEvents)
+        {
+            await _publisher.Publish(domainEvent);
+        }
+    }
+
+    private bool IsUserWaitingOnline() => _httpContextAccessor.HttpContext is not null;
 
     private void AddDomainEventsToOfflineProcessingQueue(List<IDomainEvent> domainEvents)
     {

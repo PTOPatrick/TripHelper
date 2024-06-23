@@ -17,7 +17,7 @@ public static partial class Constants
         public const string Email = "test.user@example.com";
         public const string Firstname = "test";
         public const string Lastname = "user";
-        public const string Password = "p57WO0%'<r2r";
+        public const string Password = "thiIS!!@1918Aa";
         public const int MoreThanUserMaxTripCount = 11;
         public const int MoreThanAdminMaxTripCount = 101;
         public const int LesshanUserMaxTripCount = 5;

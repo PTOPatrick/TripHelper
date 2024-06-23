@@ -1,12 +1,11 @@
 using ErrorOr;
 using MediatR;
-using TripHelper.Application.Authentication.Commands.Register;
 using TripHelper.Application.Authentication.Common;
 using TripHelper.Application.Common.Interfaces;
 using TripHelper.Domain.Common.Interfaces;
 using TripHelper.Domain.Users;
 
-namespace GymManagement.Application.Authentication.Commands.Register;
+namespace TripHelper.Application.Authentication.Commands.Register;
 
 public class RegisterCommandHandler(
     IJwtTokenGenerator _jwtTokenGenerator,
