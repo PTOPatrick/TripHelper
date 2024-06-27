@@ -27,7 +27,7 @@ builder.Services
     .AddPresentation()
     .AddApplication()
     .AddInfrastructure(
-        secretManager.GetSecret(Environment.GetEnvironmentVariable("DB_CONNECTION_STRING_KEY")!),
+        secretManager.GetSecret("DbConnectionString"),
         jwtSettings);
 
 var app = builder.Build();

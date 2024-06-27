@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TripHelper.Application.Unit
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TripHelper.Application.SubcutaneousTests", "tests\TripHelper.Application.SubcutaneousTests\TripHelper.Application.SubcutaneousTests.csproj", "{02457FF5-0451-49FA-ABE5-DE698654EDFD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TripHelper.Api.IntegrationTests", "tests\TripHelper.Api.IntegrationTests\TripHelper.Api.IntegrationTests.csproj", "{81767804-7144-46F3-8C58-17C3B8F52A0A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -70,6 +72,10 @@ Global
 		{02457FF5-0451-49FA-ABE5-DE698654EDFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02457FF5-0451-49FA-ABE5-DE698654EDFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02457FF5-0451-49FA-ABE5-DE698654EDFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81767804-7144-46F3-8C58-17C3B8F52A0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81767804-7144-46F3-8C58-17C3B8F52A0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81767804-7144-46F3-8C58-17C3B8F52A0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81767804-7144-46F3-8C58-17C3B8F52A0A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{ADCE7DEF-0AA6-4BBB-8102-2C2D1F5E38F3} = {FC15CAEE-0472-43D3-9A27-38F722FB8C3B}
@@ -81,5 +87,6 @@ Global
 		{3974C69C-8DB8-4090-94A4-B3CF9F4B6376} = {3DFE7091-4343-4D5B-9E14-A265A8995F4B}
 		{D83E1CAA-775A-46BF-8787-C5F790ADAB83} = {3DFE7091-4343-4D5B-9E14-A265A8995F4B}
 		{02457FF5-0451-49FA-ABE5-DE698654EDFD} = {3DFE7091-4343-4D5B-9E14-A265A8995F4B}
+		{81767804-7144-46F3-8C58-17C3B8F52A0A} = {3DFE7091-4343-4D5B-9E14-A265A8995F4B}
 	EndGlobalSection
 EndGlobal

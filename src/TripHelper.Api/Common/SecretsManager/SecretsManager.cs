@@ -5,7 +5,7 @@ namespace AdminCenter.Application.Common.Secrets
 {
     public class SecretsManager
     {
-        private readonly KeyValuePair<string, string> DbConnectionString = new(Environment.GetEnvironmentVariable("DB_CONNECTION_STRING_KEY")!, "");
+        private readonly KeyValuePair<string, string> DbConnectionString = new("DbConnectionString", "");
         private readonly KeyValuePair<string, string> Issuer = new("Issuer", "");
         private readonly KeyValuePair<string, int> TokenExpirationInMinutes = new("TokenExpirationInMinutes", 0);
         private readonly KeyValuePair<string, string> Secret = new("Secret", "");
