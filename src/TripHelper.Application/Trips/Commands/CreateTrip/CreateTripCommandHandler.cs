@@ -1,7 +1,6 @@
 using ErrorOr;
 using MediatR;
 using TripHelper.Application.Common.Interfaces;
-using TripHelper.Application.Common.Services.Authorization;
 using TripHelper.Domain.Trips;
 
 namespace TripHelper.Application.Trips.Commands.CreateTrip;

@@ -88,27 +88,6 @@ public class DeleteMemberTests(MediatorFactory mediatorFactory)
         return new Member(user.Id, trip.Id, false);
     }
 
-    private async Task<MemberWithEmail> CreateMember(User user, Trip trip)
-    {
-        var createMemberCommand = MemberCommandFactory.CreateCreateMemberCommand(
-            user.Email,
-            trip.Id,
-            false
-        );
-
-        var createMemberCommandHandler = MemberCommandFactory.CreateCreateMemberCommandHandler(
-            _membersRepository,
-            _usersRepository,
-            _tripsRepository,
-            _unitOfWork,
-            _authorizationService
-        );
-
-        var result = await createMemberCommandHandler.Handle(createMemberCommand, CancellationToken.None);
-
-        return result.Value;
-    }
-
     private async Task<Trip> CreateTrip()
     {
         var createTripCommand = TripCommandFactory.CreateCreateTripCommand(
