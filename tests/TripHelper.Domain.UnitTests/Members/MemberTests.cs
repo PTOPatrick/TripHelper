@@ -1,6 +1,7 @@
 using FluentAssertions;
 using TestCommon.Members;
 using TestCommon.TestConstants;
+using TestCommon.TripItems;
 
 namespace TripHelper.Domain.UnitTests.Members;
 
@@ -11,10 +12,10 @@ public class MemberTests
     {
         // Arrange
         var member = MemberFactory.CreateMember(Constants.Member.UserId, Constants.Member.TripId);
-    
+
         // Act
         member.Update(true);
-    
+
         // Assert
         member.UserId.Should().Be(Constants.Member.UserId);
         member.TripId.Should().Be(Constants.Member.TripId);

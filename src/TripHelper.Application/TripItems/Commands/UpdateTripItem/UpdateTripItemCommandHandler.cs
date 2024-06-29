@@ -2,7 +2,6 @@ using ErrorOr;
 using MediatR;
 using TripHelper.Application.Common.Interfaces;
 using TripHelper.Application.Common.Models;
-using TripHelper.Application.Common.Services.Authorization;
 using TripHelper.Domain.TripItems;
 
 namespace TripHelper.Application.TripItems.Commands.UpdateTripItem;
@@ -11,9 +10,8 @@ public class UpdateTripItemCommandHandler(
     ITripItemsRepository _tripItemsRepository,
     IMembersRepository _membersRepository,
     IUsersRepository _usersRepository,
-    IAuthorizationService _authorizationService
-
-) : IRequestHandler<UpdateTripItemCommand, ErrorOr<TripItemWithEmail>>
+    IUnitOfWork _unitOfWork,
+    IAuthorizationService _authorizationService) : IRequestHandler<UpdateTripItemCommand, ErrorOr<TripItemWithEmail>>
 {
     public async Task<ErrorOr<TripItemWithEmail>> Handle(UpdateTripItemCommand request, CancellationToken cancellationToken)
     {
@@ -33,6 +31,9 @@ public class UpdateTripItemCommandHandler(
             return TripItemErrors.UserNotFound;
 
         tripItem.Update(request.Name, request.Amount, request.MemberId);
+
+        await _tripItemsRepository.UpdateTripItemAsync(tripItem);
+        await _unitOfWork.CommitChangesAsync();
 
         return new TripItemWithEmail(
             tripItem.Id,

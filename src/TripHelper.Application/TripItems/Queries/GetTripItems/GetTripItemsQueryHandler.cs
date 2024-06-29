@@ -2,7 +2,6 @@ using ErrorOr;
 using MediatR;
 using TripHelper.Application.Common.Interfaces;
 using TripHelper.Application.Common.Models;
-using TripHelper.Application.Common.Services.Authorization;
 
 namespace TripHelper.Application.TripItems.Queries.GetTripItems;
 

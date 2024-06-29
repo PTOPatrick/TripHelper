@@ -7,13 +7,13 @@ using TripHelper.Application.Trips.Queries.GetTrips;
 using TripHelper.Application.Trips.Commands.UpdateTrip;
 using TripHelper.Application.Trips.Commands.DeleteTrip;
 using Microsoft.AspNetCore.Authorization;
-using TripHelper.Application.TripItems.Commands.AddTripItem;
 using TripHelper.Application.TripItems.Queries.GetTripItems;
 using TripHelper.Application.TripItems.Queries.GetTripItem;
 using TripHelper.Application.TripItems.Commands.UpdateTripItem;
 using TripHelper.Application.TripItems.Commands.DeleteTripItem;
 using TripHelper.Application.Members.Queries.GetTripMembers;
 using TripHelper.Contracts.Members;
+using TripHelper.Application.TripItems.Commands.CreateTripItem;
 
 namespace TripHelper.Api.Controllers;
 
