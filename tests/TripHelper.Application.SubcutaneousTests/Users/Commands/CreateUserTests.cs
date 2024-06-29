@@ -3,6 +3,7 @@ using TripHelper.Application.SubcutaneousTests.Common;
 using TestCommon.Users;
 using TestCommon.TestConstants;
 using FluentAssertions;
+using TestCommon.Members;
 
 
 namespace TripHelper.Application.SubcutaneousTests.Users.Commands;
@@ -11,7 +12,7 @@ namespace TripHelper.Application.SubcutaneousTests.Users.Commands;
 public class CreateUserTests(MediatorFactory mediatorFactory)
 {
     private readonly IMediator _mediator = mediatorFactory.CreateMediator();
-    
+
     [Fact]
     public async Task CreateUser_WhenValidData_ShouldCreateUser()
     {
@@ -29,8 +30,11 @@ public class CreateUserTests(MediatorFactory mediatorFactory)
 
         // Assert
         result.IsError.Should().BeFalse();
+        result.Value.Firstname.Should().Be(Constants.User.Firstname);
+        result.Value.Lastname.Should().Be(Constants.User.Lastname);
+        result.Value.Email.Should().Be(Constants.User.Email);
     }
-    
+
     [Theory]
     [InlineData(null, "lastname", "thiIS!!@1918Aa", "example.mail@test.com")]
     [InlineData("firstname", null, "thiIS!!@1918Aa", "example.mail@test.com")]

@@ -11,7 +11,7 @@ public class UpdateTripItemCommandHandler(
     ITripItemsRepository _tripItemsRepository,
     IMembersRepository _membersRepository,
     IUsersRepository _usersRepository,
-    AuthorizationService _authorizationService
+    IAuthorizationService _authorizationService
 
 ) : IRequestHandler<UpdateTripItemCommand, ErrorOr<TripItemWithEmail>>
 {
@@ -23,7 +23,7 @@ public class UpdateTripItemCommandHandler(
         var tripItem = await _tripItemsRepository.GetTripItemAsync(request.TripItemId);
         if (tripItem is null)
             return TripItemErrors.TripItemNotFound;
-        
+
         var member = await _membersRepository.GetMemberAsync(request.MemberId);
         if (member is null)
             return TripItemErrors.MemberNotFound;
@@ -31,7 +31,7 @@ public class UpdateTripItemCommandHandler(
         var user = await _usersRepository.GetUserByIdAsync(member.UserId);
         if (user is null)
             return TripItemErrors.UserNotFound;
-        
+
         tripItem.Update(request.Name, request.Amount, request.MemberId);
 
         return new TripItemWithEmail(

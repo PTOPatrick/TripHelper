@@ -13,7 +13,7 @@ public class CreateMemberCommandHandler(
     IUsersRepository _usersRepository,
     ITripsRepository _tripsRepository,
     IUnitOfWork _unitOfWork,
-    AuthorizationService _authorizationService
+    IAuthorizationService _authorizationService
 ) : IRequestHandler<CreateMemberCommand, ErrorOr<MemberWithEmail>>
 {
     private User? _user;
@@ -22,7 +22,7 @@ public class CreateMemberCommandHandler(
     {
         if (!_authorizationService.CanCreateMember(request.TripId))
             return Error.Unauthorized();
-            
+
         var validationResult = await ValidateRequest(request);
         if (validationResult.IsError)
             return validationResult.Errors;
@@ -40,7 +40,7 @@ public class CreateMemberCommandHandler(
         _user = await _usersRepository.GetUserByEmailAsync(request.Email);
         if (_user is null)
             return MemberErrors.UserNotFound;
-        
+
         var memberCount = await _membersRepository.GetMemberCountByUserIdAsync(_user.Id);
         if (_user.HasReachedMaxMembers(memberCount))
             return MemberErrors.UserReachedMaxMembers;

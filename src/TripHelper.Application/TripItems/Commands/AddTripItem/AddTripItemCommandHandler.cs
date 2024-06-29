@@ -9,14 +9,14 @@ namespace TripHelper.Application.TripItems.Commands.AddTripItem;
 public class CreateTripItemCommandHandler(
     ITripItemsRepository _tripItemsRepository,
     IUnitOfWork _unitOfWork,
-    AuthorizationService _authorizationService
+    IAuthorizationService _authorizationService
 ) : IRequestHandler<CreateTripItemCommand, ErrorOr<TripItem>>
 {
     public async Task<ErrorOr<TripItem>> Handle(CreateTripItemCommand request, CancellationToken cancellationToken)
     {
         if (!_authorizationService.CanCreateTripItem(request.TripId))
             return Error.Unauthorized();
-        
+
         var tripItem = new TripItem(request.Name, request.TripId, request.MemberId);
 
         var result = tripItem.AssignAmount(request.Amount);
@@ -25,7 +25,7 @@ public class CreateTripItemCommandHandler(
 
         await _tripItemsRepository.AddTripItemAsync(tripItem);
         await _unitOfWork.CommitChangesAsync();
-        
+
         return tripItem;
     }
 }

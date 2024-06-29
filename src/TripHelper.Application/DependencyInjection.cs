@@ -1,6 +1,7 @@
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using TripHelper.Application.Common.Behaviors;
+using TripHelper.Application.Common.Interfaces;
 using TripHelper.Application.Common.Services.Authorization;
 
 namespace TripHelper.Application;
@@ -18,8 +19,8 @@ public static class DependencyInjection
 
         services.AddValidatorsFromAssemblyContaining(typeof(DependencyInjection));
 
-        services.AddScoped<AuthorizationService>();
-        
+        services.AddScoped<IAuthorizationService, AuthorizationService>();
+
         return services;
     }
 }

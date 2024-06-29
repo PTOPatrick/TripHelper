@@ -1,8 +1,9 @@
+using TripHelper.Application.Common.Interfaces;
 using TripHelper.Application.Common.Models;
 
 namespace TripHelper.Application.Common.Services.Authorization;
 
-public class AuthorizationService
+public class AuthorizationService : IAuthorizationService
 {
     private bool _isSuperAdmin;
     private int _currentUserId;

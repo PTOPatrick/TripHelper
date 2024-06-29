@@ -9,14 +9,14 @@ namespace TripHelper.Application.Trips.Queries.GetTrips;
 public class GetTripsQueryHandler(
     IMembersRepository _membersRepository,
     ITripsRepository _tripsRepository,
-    AuthorizationService _authorizationService
+    IAuthorizationService _authorizationService
 ) : IRequestHandler<GetTripsQuery, ErrorOr<List<Trip>>>
 {
     public async Task<ErrorOr<List<Trip>>> Handle(GetTripsQuery request, CancellationToken cancellationToken)
     {
         if (_authorizationService.IsSuperAdmin())
             return await _tripsRepository.GetTripsAsync();
-            
+
         var members = await _membersRepository.GetMembersByUserIdAsync(_authorizationService.GetCurrentUserId());
 
         if (members.Count is 0)

@@ -1,20 +1,19 @@
 using ErrorOr;
 using MediatR;
 using TripHelper.Application.Common.Interfaces;
-using TripHelper.Application.Common.Services.Authorization;
 using TripHelper.Domain.Members;
 
 namespace TripHelper.Application.Members.Commands.DeleteMember;
 
 public class DeleteMemberCommandHandler(
-    IMembersRepository _memberRepository,
+    IMembersRepository _membersRepository,
     IUnitOfWork _unitOfWork,
-    AuthorizationService _authorizationService
+    IAuthorizationService _authorizationService
 ) : IRequestHandler<DeleteMemberCommand, ErrorOr<Deleted>>
 {
     public async Task<ErrorOr<Deleted>> Handle(DeleteMemberCommand request, CancellationToken cancellationToken)
     {
-        var member = await _memberRepository.GetMemberAsync(request.Id);
+        var member = await _membersRepository.GetMemberAsync(request.Id);
         if (member is null)
             return MemberErrors.MemberNotFound;
 
@@ -22,8 +21,8 @@ public class DeleteMemberCommandHandler(
             return Error.Unauthorized();
 
         member.MemberDeleted();
-        
-        await _memberRepository.DeleteMemberAsync(member);
+
+        await _membersRepository.DeleteMemberAsync(member);
         await _unitOfWork.CommitChangesAsync();
 
         return Result.Deleted;

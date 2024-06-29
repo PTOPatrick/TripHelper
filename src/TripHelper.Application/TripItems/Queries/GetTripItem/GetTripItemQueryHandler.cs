@@ -11,7 +11,7 @@ public class GetTripItemQueryHandler(
     ITripItemsRepository _tripItemsRepository,
     IMembersRepository _membersRepository,
     IUsersRepository _usersRepository,
-    AuthorizationService _authorizationService
+    IAuthorizationService _authorizationService
 ) : IRequestHandler<GetTripItemQuery, ErrorOr<TripItemWithEmail>>
 {
     public async Task<ErrorOr<TripItemWithEmail>> Handle(GetTripItemQuery request, CancellationToken cancellationToken)

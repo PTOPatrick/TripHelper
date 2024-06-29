@@ -10,7 +10,7 @@ public class GetTripItemsQueryHandler(
     ITripItemsRepository _tripItemsRepository,
     IMembersRepository _membersRepository,
     IUsersRepository _usersRepository,
-    AuthorizationService _authorizationService) : IRequestHandler<GetTripItemsQuery, ErrorOr<List<TripItemWithEmail>>>
+    IAuthorizationService _authorizationService) : IRequestHandler<GetTripItemsQuery, ErrorOr<List<TripItemWithEmail>>>
 {
     public async Task<ErrorOr<List<TripItemWithEmail>>> Handle(GetTripItemsQuery request, CancellationToken cancellationToken)
     {
@@ -20,7 +20,7 @@ public class GetTripItemsQueryHandler(
         var tripItems = await _tripItemsRepository.GetTripItemsByTripIdAsync(request.TripId);
         var members = await _membersRepository.GetMembersByTripIdAsync(request.TripId);
         var users = await _usersRepository.GetUsersByIdsAsync(members.Select(m => m.UserId).ToList());
-        
+
         return tripItems.Select(ti => new TripItemWithEmail(ti.Id, ti.Name, ti.Amount, ti.MemberId, users.First(u => u.Id == ti.MemberId).Email)).ToList();
     }
 }

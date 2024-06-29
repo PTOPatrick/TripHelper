@@ -11,12 +11,12 @@ public class UpdateMemberCommandHandler(
     IMembersRepository _membersRepository,
     IUsersRepository _usersRepository,
     IUnitOfWork _unitOfWork,
-    AuthorizationService _authorizationService
+    IAuthorizationService _authorizationService
 ) : IRequestHandler<UpdateMemberCommand, ErrorOr<MemberWithEmail>>
 {
     public async Task<ErrorOr<MemberWithEmail>> Handle(UpdateMemberCommand request, CancellationToken cancellationToken)
     {
-        var member = await _membersRepository.GetMemberAsync(request.Id); 
+        var member = await _membersRepository.GetMemberAsync(request.Id);
         if (member is null)
             return MemberErrors.MemberNotFound;
 
@@ -28,7 +28,7 @@ public class UpdateMemberCommandHandler(
             return MemberErrors.UserNotFound;
 
         member.Update(request.IsAdmin);
-        
+
         await _membersRepository.UpdateMemberAsync(member);
         await _unitOfWork.CommitChangesAsync();
 

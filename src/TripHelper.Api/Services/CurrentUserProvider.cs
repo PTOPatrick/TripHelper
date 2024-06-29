@@ -1,13 +1,12 @@
 using System.Security.Claims;
 using TripHelper.Application.Common.Interfaces;
 using TripHelper.Application.Common.Models;
-using TripHelper.Application.Common.Services.Authorization;
 
 namespace TripHelper.Api.Services;
 
 public class CurrentUserProvider(
     IHttpContextAccessor _httpContextAccessor,
-    AuthorizationService _authorizationService) : ICurrentUserProvider
+    IAuthorizationService _authorizationService) : ICurrentUserProvider
 {
 
     public CurrentUser GetCurrentUser()
@@ -24,7 +23,7 @@ public class CurrentUserProvider(
         var adminTripIds = ConvertClaimValuesToList(GetClaimValues("adminMember")[0]);
 
         var currentUser = new CurrentUser(
-            Id: idClaim, 
+            Id: idClaim,
             Permissions: permissionsClaim,
             Roles: rolesClaim,
             UserTripIds: userTripIds,

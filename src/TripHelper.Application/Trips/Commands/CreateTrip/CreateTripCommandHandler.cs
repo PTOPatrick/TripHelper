@@ -9,7 +9,7 @@ namespace TripHelper.Application.Trips.Commands.CreateTrip;
 public class CreateTripCommandHandler(
     ITripsRepository _tripRepository,
     IUnitOfWork _unitOfWork,
-    AuthorizationService _authorizationService
+    IAuthorizationService _authorizationService
 ) : IRequestHandler<CreateTripCommand, ErrorOr<Trip>>
 {
     public async Task<ErrorOr<Trip>> Handle(CreateTripCommand request, CancellationToken cancellationToken)
@@ -20,11 +20,11 @@ public class CreateTripCommandHandler(
     private async Task<Trip> CreateTripFromRequest(CreateTripCommand request)
     {
         var trip = new Trip(
-            request.Name, 
-            request.StartDate, 
-            request.EndDate, 
-            request.Description, 
-            request.Location, 
+            request.Name,
+            request.StartDate,
+            request.EndDate,
+            request.Description,
+            request.Location,
             request.ImageUrl,
             _authorizationService.GetCurrentUserId());
 

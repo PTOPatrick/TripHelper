@@ -9,14 +9,14 @@ namespace TripHelper.Application.Trips.Commands.UpdateTrip;
 public class UpdateTripCommandHandler(
     ITripsRepository _tripsRepository,
     IUnitOfWork _unitOfWork,
-    AuthorizationService _authorizationService
+    IAuthorizationService _authorizationService
 ) : IRequestHandler<UpdateTripCommand, ErrorOr<Trip>>
 {
     public async Task<ErrorOr<Trip>> Handle(UpdateTripCommand request, CancellationToken cancellationToken)
     {
         if (!_authorizationService.CanUpdateTrip(request.TripId))
             return Error.Unauthorized();
-            
+
         var trip = await _tripsRepository.GetTripByIdAsync(request.TripId);
         if (trip is null)
             return TripErrors.TripNotFound;

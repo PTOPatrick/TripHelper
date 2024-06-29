@@ -2,7 +2,6 @@ using ErrorOr;
 using MediatR;
 using TripHelper.Application.Common.Interfaces;
 using TripHelper.Application.Common.Models;
-using TripHelper.Application.Common.Services.Authorization;
 using TripHelper.Domain.Members;
 
 namespace TripHelper.Application.Members.Queries.GetMember;
@@ -10,7 +9,7 @@ namespace TripHelper.Application.Members.Queries.GetMember;
 public class GetMemberQueryHandler(
     IMembersRepository _membersRepository,
     IUsersRepository _usersRepository,
-    AuthorizationService _authorizationService) : IRequestHandler<GetMemberQuery, ErrorOr<MemberWithEmail>>
+    IAuthorizationService _authorizationService) : IRequestHandler<GetMemberQuery, ErrorOr<MemberWithEmail>>
 {
     public async Task<ErrorOr<MemberWithEmail>> Handle(GetMemberQuery request, CancellationToken cancellationToken)
     {

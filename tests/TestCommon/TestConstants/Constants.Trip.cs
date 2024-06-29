@@ -4,6 +4,7 @@ public static partial class Constants
 {
     public static class Trip
     {
+        public const int Id = 1;
         public const string Name = "Trip 1";
         public const string Description = "Description";
         public const string Location = "Location";

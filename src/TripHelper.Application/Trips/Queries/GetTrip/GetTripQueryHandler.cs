@@ -10,7 +10,7 @@ namespace TripHelper.Application.Trips.Queries.GetTrip;
 public class GetTripQueryHandler(
     ITripsRepository _tripsRepository,
     IMembersRepository _membersRepository,
-    AuthorizationService _authorizationService,
+    IAuthorizationService _authorizationService,
     IUsersRepository _usersRepository) : IRequestHandler<GetTripQuery, ErrorOr<TripWithEmails>>
 {
     public async Task<ErrorOr<TripWithEmails>> Handle(GetTripQuery request, CancellationToken cancellationToken)
