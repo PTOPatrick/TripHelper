@@ -67,7 +67,7 @@ public class GetTripMembersTests(MediatorFactory mediatorFactory)
         result.FirstError.Should().BeEquivalentTo(Error.Unauthorized());
     }
 
-    private Member TypeCastMemberWithEmailToMember(MemberWithEmail memberWithEmail)
+    private static Member TypeCastMemberWithEmailToMember(MemberWithEmail memberWithEmail)
     {
         return new Member(memberWithEmail.UserId, memberWithEmail.TripId, memberWithEmail.IsAdmin);
     }

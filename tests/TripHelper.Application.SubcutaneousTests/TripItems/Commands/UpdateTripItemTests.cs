@@ -126,7 +126,7 @@ public class UpdateTripItemTests(MediatorFactory mediatorFactory)
         return result.Value;
     }
 
-    private Member TypeCastMemberWithEmailToMember(MemberWithEmail memberWithEmail)
+    private static Member TypeCastMemberWithEmailToMember(MemberWithEmail memberWithEmail)
     {
         return new Member(memberWithEmail.UserId, memberWithEmail.TripId, memberWithEmail.IsAdmin);
     }
