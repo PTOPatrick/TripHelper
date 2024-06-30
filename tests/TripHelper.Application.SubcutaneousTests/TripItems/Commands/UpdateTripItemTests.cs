@@ -69,6 +69,143 @@ public class UpdateTripItemTests(MediatorFactory mediatorFactory)
         result.Value.MemberId.Should().Be(Constants.TripItem.UpdatedMemberId);
     }
 
+    [Fact]
+    public async Task UpdateTripItem_WhenUserNotFound_ShouldReturnUserNotFound()
+    {
+        // Arrange
+        var tripItem = await CreateTripItem();
+        var user = await CreateUser();
+        var trip = await CreateTrip();
+        var member = await CreateMember(user, trip);
+
+        _authorizationService.CanUpdateTripItem(tripItem.TripId).Returns(true);
+        _tripItemsRepository.GetTripItemAsync(tripItem.Id).Returns(tripItem);
+        _membersRepository.GetMemberAsync(Constants.TripItem.UpdatedMemberId).Returns(TypeCastMemberWithEmailToMember(member));
+        _usersRepository.GetUserByIdAsync(member.UserId).Returns(null as User);
+
+        var command = TripItemCommandFactory.CreateUpdateTripItemCommand(
+            tripItem.TripId,
+            tripItem.Id,
+            Constants.TripItem.UpdatedName,
+            Constants.TripItem.UpdatedAmount,
+            Constants.TripItem.UpdatedMemberId
+        );
+
+        var handler = TripItemCommandFactory.CreateUpdateTripItemCommandHandler(
+            _tripItemsRepository,
+            _membersRepository,
+            _usersRepository,
+            _unitOfWork,
+            _authorizationService
+        );
+
+        // Act
+        var result = await handler.Handle(command, CancellationToken.None);
+
+        // Assert
+        result.IsError.Should().BeTrue();
+        result.FirstError.Should().BeEquivalentTo(TripItemErrors.UserNotFound);
+    }
+
+    [Fact]
+    public async Task UpdateTripItem_WhenMember_ShouldReturnMemberNotFound()
+    {
+        // Arrange
+        var tripItem = await CreateTripItem();
+
+        _authorizationService.CanUpdateTripItem(tripItem.TripId).Returns(true);
+        _tripItemsRepository.GetTripItemAsync(tripItem.Id).Returns(tripItem);
+        _membersRepository.GetMemberAsync(Constants.TripItem.UpdatedMemberId).Returns(null as Member);
+
+        var command = TripItemCommandFactory.CreateUpdateTripItemCommand(
+            tripItem.TripId,
+            tripItem.Id,
+            Constants.TripItem.UpdatedName,
+            Constants.TripItem.UpdatedAmount,
+            Constants.TripItem.UpdatedMemberId
+        );
+
+        var handler = TripItemCommandFactory.CreateUpdateTripItemCommandHandler(
+            _tripItemsRepository,
+            _membersRepository,
+            _usersRepository,
+            _unitOfWork,
+            _authorizationService
+        );
+
+        // Act
+        var result = await handler.Handle(command, CancellationToken.None);
+
+        // Assert
+        result.IsError.Should().BeTrue();
+        result.FirstError.Should().BeEquivalentTo(TripItemErrors.MemberNotFound);
+    }
+
+    [Fact]
+    public async Task UpdateTripItem_WhenTripItemNotFound_ShouldReturnTripItemNotFound()
+    {
+        // Arrange
+        var tripItem = await CreateTripItem();
+
+        _authorizationService.CanUpdateTripItem(tripItem.TripId).Returns(true);
+        _tripItemsRepository.GetTripItemAsync(tripItem.Id).Returns(null as TripItem);
+
+        var command = TripItemCommandFactory.CreateUpdateTripItemCommand(
+            tripItem.TripId,
+            tripItem.Id,
+            Constants.TripItem.UpdatedName,
+            Constants.TripItem.UpdatedAmount,
+            Constants.TripItem.UpdatedMemberId
+        );
+
+        var handler = TripItemCommandFactory.CreateUpdateTripItemCommandHandler(
+            _tripItemsRepository,
+            _membersRepository,
+            _usersRepository,
+            _unitOfWork,
+            _authorizationService
+        );
+
+        // Act
+        var result = await handler.Handle(command, CancellationToken.None);
+
+        // Assert
+        result.IsError.Should().BeTrue();
+        result.FirstError.Should().BeEquivalentTo(TripItemErrors.TripItemNotFound);
+    }
+
+    [Fact]
+    public async Task UpdateTripItem_WhenUnauthorized_ShouldReturnUnauthorized()
+    {
+        // Arrange
+        var tripItem = await CreateTripItem();
+
+        _authorizationService.CanUpdateTripItem(tripItem.TripId).Returns(false);
+
+        var command = TripItemCommandFactory.CreateUpdateTripItemCommand(
+            tripItem.TripId,
+            tripItem.Id,
+            Constants.TripItem.UpdatedName,
+            Constants.TripItem.UpdatedAmount,
+            Constants.TripItem.UpdatedMemberId
+        );
+
+        var handler = TripItemCommandFactory.CreateUpdateTripItemCommandHandler(
+            _tripItemsRepository,
+            _membersRepository,
+            _usersRepository,
+            _unitOfWork,
+            _authorizationService
+        );
+
+        // Act
+        var result = await handler.Handle(command, CancellationToken.None);
+
+        // Assert
+        result.IsError.Should().BeTrue();
+        result.FirstError.Should().Be(Error.Unauthorized());
+    }
+
     private async Task<TripItem> CreateTripItem()
     {
         // Arrange
