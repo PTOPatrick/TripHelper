@@ -40,7 +40,7 @@ public class CreateTripTests
     {
         // Arrange
         var trip = await CreateTrip(true);
-        
+
         var updateTripRequest = new UpdateTripRequest(
             Constants.Trip.UpdatedName,
             DateTime.Now,
@@ -72,7 +72,7 @@ public class CreateTripTests
         // Arrange
         var trip = await CreateTrip(false);
         var user = await CreateUser(false);
-        
+
         var updateTripRequest = new UpdateTripRequest(
             Constants.Trip.UpdatedName,
             DateTime.Now,
@@ -134,7 +134,7 @@ public class CreateTripTests
         userResponse.IsSuperAdmin.Should().Be(isSuperAdmin);
 
         _userId = userResponse.Id;
-        
+
         return new User(
             userResponse.Email,
             userResponse.Firstname,
@@ -202,7 +202,7 @@ public class CreateTripTests
             true,
             Constants.User.UserTripIds,
             Constants.User.AdminTripIds);
-        
+
         // Act
         var response = await _client.PostAsJsonAsync("/api/members", createMemberRequest);
 
@@ -215,7 +215,7 @@ public class CreateTripTests
         memberResponse.TripId.Should().Be(_tripId);
 
         _memberId = memberResponse.Id;
-        
+
         return new Member(
             memberResponse.UserId,
             memberResponse.TripId,
